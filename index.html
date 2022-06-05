@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Alpine ToDo</title>
+
+  <script src="//unpkg.com/alpinejs"
+          defer></script>
+</head>
+
+<body>
+  <div x-data="randomQuote">
+    <blockquote x-text="quote"></blockquote>
+    <p x-text="author"></p>
+  </div>
+ 
+  <script>
+    const randomQuote = {
+      quote: "Time & Treat wait for none",
+      author: "Mehedi",
+      getQuote() {
+        fetch('https://api.quotable.io/random')
+          .then(response => response.json())
+          .then(response => console.log(response))
+          .catch(err => console.error(err));
+      }
+
+    };
+
+
+
+  </script>
+</body>
+
+</html>
